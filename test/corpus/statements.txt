@@ -1,0 +1,53 @@
+==================
+Declare an int
+==================
+
+const lbumps = 10
+
+---
+
+(source_file
+		(nonfn_definition
+			(identifier)
+			(val)
+		)
+)
+
+==================
+Declare a string
+==================
+
+const plane = "XY"
+
+---
+
+(source_file
+		(nonfn_definition
+			(identifier)
+			(val
+				(string
+					(string_content)
+				)
+			)
+		)
+)
+
+==================
+Declare a function
+==================
+
+fn f = () => { return 2 }
+
+---
+
+(source_file
+		(function_definition
+			(identifier)
+			(parameter_list)
+			(function_body
+				(return_stmt
+					(val)
+				)
+			)
+		)
+)
