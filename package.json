@@ -1,19 +1,15 @@
 {
   "name": "tree-sitter-kcl",
-  "version": "1.0.0",
-  "description": "Tree-sitter parser for KittyCADlang",
+  "version": "0.0.1",
+  "description": "Kcl grammar for tree-sitter",
+  "repository": "github:tree-sitter/tree-sitter-kcl",
+  "license": "MIT",
   "main": "bindings/node",
   "types": "bindings/node",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "node-gyp-build",
-    "prebuildify": "prebuildify --napi --strip"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/KittyCAD/tree-sitter-kcl.git"
-  },
   "keywords": [
+    "incremental",
+    "parsing",
+    "tree-sitter",
     "kcl"
   ],
   "files": [
@@ -24,32 +20,34 @@
     "queries/*",
     "src/**"
   ],
-  "author": "Adam Chalmers",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/KittyCAD/tree-sitter-kcl/issues"
-  },
-  "homepage": "https://github.com/KittyCAD/tree-sitter-kcl#readme",
   "dependencies": {
     "node-addon-api": "^7.1.0",
     "node-gyp-build": "^4.8.0"
+  },
+  "devDependencies": {
+    "prebuildify": "^6.0.0",
+    "tree-sitter-cli": "^0.22.6"
   },
   "peerDependencies": {
     "tree-sitter": "^0.21.0"
   },
   "peerDependenciesMeta": {
-    "tree_sitter": {
+    "tree-sitter": {
       "optional": true
     }
   },
-  "devDependencies": {
-    "tree-sitter-cli": "^0.22.6",
-    "prebuildify": "^6.0.0"
+  "scripts": {
+    "install": "node-gyp-build",
+    "prebuildify": "prebuildify --napi --strip",
+    "build": "tree-sitter generate --no-bindings",
+    "build-wasm": "tree-sitter build --wasm",
+    "test": "tree-sitter test",
+    "parse": "tree-sitter parse"
   },
   "tree-sitter": [
     {
-      "scope": "source.YOUR_LANGUAGE_NAME",
-      "injection-regex": "^YOUR_LANGUAGE_NAME$"
+      "scope": "source.kcl",
+      "injection-regex": "^kcl$"
     }
   ]
 }

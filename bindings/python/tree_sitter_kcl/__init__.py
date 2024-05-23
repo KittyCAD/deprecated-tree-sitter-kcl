@@ -1,4 +1,4 @@
-"YourLanguageName grammar for tree-sitter"
+"Kcl grammar for tree-sitter"
 
 from ._binding import language
 
